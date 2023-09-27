@@ -61,7 +61,8 @@ export const Input= styled.input `
     font-size: 18px;
     font-weight: 300;
     word-wrap: break-word;
-    margin: 0 auto;
+
+    margin: 0 auto; 
     margin-bottom: 34px;
     padding: 15px;
     background-color: #47474c;
@@ -104,9 +105,65 @@ export const Button= styled.button `
       opacity: 0.5;
     }
 
+`
+
+export const ContainerOrders = styled.div `
+
+    display: flex;
     
-   
+    justify-content: space-around;
+    
+
+`
+
+export const ContainerLis = styled.div `
+    display: flex ;
+    flex-direction: row;
+    justify-content: end; 
+    align-items: center;
+
+    p {
      
-  
+     display: flex;
+     flex-direction: column;
+     color: #757575;;
+     font-size: 16px;
+     font-weight: 300;
+     word-wrap: break-word;
+     padding: 5px; 
+     text-align: left;
+ 
+     }
+ 
+`
+
+export const Order = styled.li `
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+
+    width: 342px;
+    height: 160px;
+
+    border: none;
+    outline: none;
+
+    
+    button {
+      display: flex;
+      /* display-flex:row; */
+      justify-content: end; 
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+   
+   
 
 `
