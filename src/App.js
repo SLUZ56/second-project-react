@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 import Burger from './assets/burger1.png'
 import Trash from './assets/trash.svg'
+import axios from 'axios'
 
-import { Container, H1, Image, ContainerItems, Label, Input, Button, ContainerOrders, ContainerLis, Order  } from './styles'
+import { Container, H1, Image, ContainerItems, Label, Input, Button, Order  } from './styles'
 
 export default function App () {
 
@@ -11,15 +12,41 @@ export default function App () {
   const inputOrder = useRef()
   const inputName = useRef()
 
-  function addNewOrder() {
-    // console.log(inputOrder.current.value)
-    // console.log(inputName.current.value)
+  async function addNewOrder() {
+    
+    const { data: newOrder } = await axios.post("http://localhost:3001/orders", { order:inputOrder.current.value, clientName:inputName.current.value , price:inputOrder.current.value, status:inputOrder.current.value })
 
-    setOrders([...orders,{ id: Math.random(), order:inputOrder.current.value, name:inputName.current.value }])
+    console.log(newOrder)
+
+    setOrders([...orders, newOrder])
+
+     
 
 
   }
 
+ // REACT HOOK => useEffect
+ // A minha aplicação inicia o useEffect é chamado
+ useEffect(() => {
+  async function fetchOrders() {
+    const { data: newOrders } = await axios.get("http://localhost:3001/orders")
+
+    setOrders(newOrders)
+
+  }
+
+  fetchOrders()
+  
+ }, [orders]) 
+
+
+
+
+  function deleteOrder(orderId){
+     const newOrders = orders.filter(order => order.id !== orderId)
+
+     setOrders(newOrders)
+  }
   
 
    
@@ -40,20 +67,23 @@ export default function App () {
           <Input ref={inputName} placeholder='Steve Jobs'/>
 
           <Button onClick={addNewOrder}>Novo Pedido</Button>
-          <ContainerOrders>
-           <ContainerLis>
+          <>
+           
+           <>
               <ul>
                   { orders.map( order => (
                       <Order key={order.id}>
-                        <p>{order.order}</p> <p>{order.clientName}</p> <p>{order.price}</p> <p>{order.status}</p> 
-                        <button><img src={Trash} alt="lata-de-lixo"/></button> 
+                        <p>{order.order}</p> <p>{order.name}</p> <p>{order.price}</p> <p>{order.status}</p> 
+                        <button onClick={() => deleteOrder(order.id)}>
+                          <img src={Trash} alt="lata-de-lixo"/>
+                        </button> 
                       </Order>
 
                     ))
                   }
               </ul>
-              </ContainerLis> 
-          </ContainerOrders>
+              </> 
+          </>
           </ContainerItems>
            
         </Container>

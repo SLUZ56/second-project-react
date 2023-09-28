@@ -107,23 +107,6 @@ export const Button= styled.button `
 
 `
 
-export const ContainerOrders = styled.div `
-
-    display: flex;
-    
-    justify-content: space-around;
-    
-
-`
-
-export const ContainerLis = styled.div `
-    display: flex ;
-    flex-direction: row;
-    justify-content: end; 
-    align-items: center;
-
- 
-`
 
 export const Order = styled.li `
     display: flex;
@@ -143,15 +126,16 @@ export const Order = styled.li `
 
     p {
      
-     display: flex;
-     flex-direction: column;
-     color: #757575;
-     font-size: 16px;
-     font-weight: 300;
-     word-wrap: break-word;
-     padding: 5px; 
-     text-align: left;
- 
+        display: flex;
+        flex-direction: column;
+        
+        color: #757575;
+        font-size: 16px;
+        font-weight: 300;
+        word-wrap: break-word;
+        padding: 5px; 
+        text-align: left;
+    
      }
  
     
