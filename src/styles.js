@@ -122,18 +122,6 @@ export const ContainerLis = styled.div `
     justify-content: end; 
     align-items: center;
 
-    p {
-     
-     display: flex;
-     flex-direction: column;
-     color: #757575;;
-     font-size: 16px;
-     font-weight: 300;
-     word-wrap: break-word;
-     padding: 5px; 
-     text-align: left;
- 
-     }
  
 `
 
@@ -153,10 +141,22 @@ export const Order = styled.li `
     border: none;
     outline: none;
 
+    p {
+     
+     display: flex;
+     flex-direction: column;
+     color: #757575;
+     font-size: 16px;
+     font-weight: 300;
+     word-wrap: break-word;
+     padding: 5px; 
+     text-align: left;
+ 
+     }
+ 
     
     button {
       display: flex;
-      /* display-flex:row; */
       justify-content: end; 
       background: none;
       border: none;
@@ -164,6 +164,4 @@ export const Order = styled.li `
     }
 
    
-   
-
 `

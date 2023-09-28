@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 import Burger from './assets/burger1.png'
 import Trash from './assets/trash.svg'
@@ -8,17 +8,20 @@ import { Container, H1, Image, ContainerItems, Label, Input, Button, ContainerOr
 export default function App () {
 
   const [orders, setOrders] = useState([])   // array de pedidos
-  const [order, setOrder] = useState()   // array de pedidos
-  
+  const inputOrder = useRef()
+  const inputName = useRef()
 
   function addNewOrder() {
-    setOrders()
-    
+    // console.log(inputOrder.current.value)
+    // console.log(inputName.current.value)
+
+    setOrders([...orders,{ id: Math.random(), order:inputOrder.current.value, name:inputName.current.value }])
+
+
   }
 
-  function changeInputOrder(event) {
-    setOrder(event.target.value)
-  }
+  
+
    
    return(
 
@@ -31,10 +34,10 @@ export default function App () {
           <H1>Faça seu pedido!</H1>
 
           <Label>Pedido</Label>
-          <Input onChange={changeInputOrder} placeholder='1 Coca-Cola, 1 X-Salada'/>
+          <Input ref={inputOrder} placeholder='1 Coca-Cola, 1 X-Salada'/>
 
           <Label>Nome do Cliente</Label>
-          <Input placeholder='Steve Jobs'/>
+          <Input ref={inputName} placeholder='Steve Jobs'/>
 
           <Button onClick={addNewOrder}>Novo Pedido</Button>
           <ContainerOrders>
