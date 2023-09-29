@@ -1,15 +1,15 @@
 import React, { useState, useRef } from 'react'
-
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 import Burger from '../../assets/burger1.png'
 
-import axios from 'axios'
-// const axios = require('axios/dist/browser/axios.cjs'); // browser
 
 import { Container, H1, Image, ContainerItems, Label, Input, Button } from './styles'
 
 export default function App () {
 
-  const [orders, setOrders] = useState([])   // array de pedidos
+  const [orders, setOrders] = useState([])  // array de pedidos
+  const history = useHistory()   
   const inputOrder = useRef() 
   const inputName = useRef()
 
@@ -22,8 +22,7 @@ export default function App () {
     
     setOrders([...orders, newOrder])
 
-     
-
+    history.push("/pedidos")
 
   }
 

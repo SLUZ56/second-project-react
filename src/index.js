@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './containers/Home';
-import Users from './containers/Users'
+import Routes from './routes'
 import GlobalStyle from './styles/globalStyles';
 
 
@@ -9,7 +8,7 @@ import GlobalStyle from './styles/globalStyles';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <Users />
+    <Routes />
     <GlobalStyle/>
   </>
 );
