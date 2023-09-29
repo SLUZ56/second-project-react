@@ -11,11 +11,11 @@ export default function App () {
   const [orders, setOrders] = useState([])  // array de pedidos
   const history = useHistory()   
   const inputOrder = useRef() 
-  const inputName = useRef()
+  const inputClientName = useRef()
 
   async function addNewOrder() {
 
-    const { data: newOrder } = await axios.post("http://localhost:3002/orders", { order:inputOrder.current.value, clientName:inputName.current.value})
+    const { data: newOrder } = await axios.post("http://localhost:3002/orders", { order:inputOrder.current.value, clientName:inputClientName.current.value})
 
     console.log(newOrder)
 
@@ -41,7 +41,7 @@ export default function App () {
           <Input ref={(inputOrder)} placeholder='1 Coca-Cola, 1 X-Salada'/>
 
           <Label>Nome do Cliente</Label>
-          <Input ref={inputName} placeholder='Steve Jobs'/>
+          <Input ref={inputClientName} placeholder='Steve Jobs'/>
 
           <Button onClick={addNewOrder}>Novo Pedido</Button>
          
