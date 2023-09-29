@@ -10,12 +10,12 @@ import { Container, H1, Image, ContainerItems, Label, Input, Button, Order  } fr
 export default function App () {
 
   const [orders, setOrders] = useState([])   // array de pedidos
-  const inputOrder = useRef()
+  const inputOrder = useRef() 
   const inputName = useRef()
 
   async function addNewOrder() {
 
-    const { data: newOrder } = await axios.post("http://localhost:3001/orders", { order:inputOrder.current.value, clientName:inputName.current.value })
+    const { data: newOrder } = await axios.post("http://localhost:3002/orders", { order:inputOrder.current.value, clientName:inputName.current.value})
 
     console.log(newOrder)
 
@@ -30,16 +30,16 @@ export default function App () {
  // REACT HOOK => useEffect
  // A minha aplicação inicia o useEffect é chamado
  useEffect(() => {
-  async function fetchOrders() {
-    const { data: newOrders } = await axios.get("http://localhost:3001/orders")
+    async function fetchOrders() {
+      const { data: newOrders } = await axios.get("http://localhost:3002/orders")
 
-    setOrders(newOrders)
+      setOrders(newOrders)
 
   }
 
   fetchOrders()
   
- }, [orders]) 
+ }, []) 
 
 
 
@@ -63,7 +63,7 @@ export default function App () {
           <H1>Faça seu pedido!</H1>
 
           <Label>Pedido</Label>
-          <Input ref={inputOrder} placeholder='1 Coca-Cola, 1 X-Salada'/>
+          <Input ref={(inputOrder)} placeholder='1 Coca-Cola, 1 X-Salada'/>
 
           <Label>Nome do Cliente</Label>
           <Input ref={inputName} placeholder='Steve Jobs'/>
