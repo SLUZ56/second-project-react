@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import Burger from './assets/burger1.png'
 import Trash from './assets/trash.svg'
 import axios from 'axios'
+// const axios = require('axios/dist/browser/axios.cjs'); // browser
 
 import { Container, H1, Image, ContainerItems, Label, Input, Button, Order  } from './styles'
 
@@ -13,11 +14,12 @@ export default function App () {
   const inputName = useRef()
 
   async function addNewOrder() {
-    
-    const { data: newOrder } = await axios.post("http://localhost:3001/orders", { order:inputOrder.current.value, clientName:inputName.current.value , price:inputOrder.current.value, status:inputOrder.current.value })
+
+    const { data: newOrder } = await axios.post("http://localhost:3001/orders", { order:inputOrder.current.value, clientName:inputName.current.value })
 
     console.log(newOrder)
 
+    
     setOrders([...orders, newOrder])
 
      
