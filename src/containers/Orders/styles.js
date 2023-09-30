@@ -102,18 +102,23 @@ export const Order = styled.li `
         flex-direction: column;
         
         color: #757575;
-        font-size: 16px;
-        font-weight: 300;
+        font-size: 20px;
+        font-weight: 600;
         word-wrap: break-word;
         padding: 5px; 
         text-align: left;
+
+        .bold {
+          color: #EEEEEE;
+          font-weight: 900;
+        }
     
      }
  
     
     button {
       /* position: relative; */
-      margin-top: -40px;
+      margin-top: -70px;
       display: flex;
       flex-direction: row;
       justify-content: end; 

@@ -45,7 +45,7 @@ export const H1 = styled.h1 `
 
 export const Label= styled.p `
     color: #EEEEEE;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 22px;
     word-wrap: break-word;
@@ -57,7 +57,7 @@ export const Label= styled.p `
 export const Input= styled.input `
     width: 342px;
     height: 58px;
-    color: white;
+    color: #EEEEEE;
     font-size: 18px;
     font-weight: 300;
     word-wrap: break-word;

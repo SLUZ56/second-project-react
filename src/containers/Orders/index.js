@@ -60,7 +60,7 @@ export default function Orders () {
               <ul>
                   { orders.map( order => (
                       <Order key={order.id}>
-                        <p>{order.order}</p> <p>{order.clientName}</p> <p>{order.price}</p> <p>{order.status}</p> 
+                        <p>{order.order}</p> <p className='bold'>{order.clientName}</p> <p>{order.price}</p> <p>{order.status}</p> 
                         <button onClick={() => deleteOrder(order.id)}>
                           <img src={Trash} alt="lata-de-lixo"/>
                         </button> 
